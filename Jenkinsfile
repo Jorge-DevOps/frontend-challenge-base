@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        dockerfile true
+    }
     environment {
         DOCKER_REGISTRY = 'https://hub.docker.com/u/jorgedevops20' 
         DOCKER_IMAGE = "${DOCKER_REGISTRY}/frontend-challenge-base" 
@@ -9,7 +11,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo 'Cloning Git repository...'
-                git url: 'https://github.com/sport-enlace-sas/frontend-challenge-base', branch: 'main'
+                git url: 'https://github.com/Jorge-DevOps/frontend-challenge-base', branch: 'main'
             }
         }
         stage('Build Docker Image') {

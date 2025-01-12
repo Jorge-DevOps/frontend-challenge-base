@@ -5,10 +5,11 @@ metadata:
   labels:
     app: nextjs-app
 spec:
+  type: NodePort
   selector:
-    app: nextjs-app
+    app: nextjs
   ports:
     - protocol: TCP
       port: 80
       targetPort: 3000
-  type: LoadBalancer  # Cambia a NodePort si no tienes un proveedor de nube
+      nodePort: 31183
